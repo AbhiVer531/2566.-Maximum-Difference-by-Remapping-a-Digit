@@ -1,0 +1,24 @@
+class Solution:
+    def minMaxDifference(self, num: int) -> int:
+        num_str = str(num)
+        for ch in num_str:
+            if ch != '9':
+                to_replace_max = ch
+                break
+        else:
+            to_replace_max = None 
+        if to_replace_max:
+            max_str = num_str.replace(to_replace_max, '9')
+        else:
+            max_str = num_str 
+        for ch in num_str:
+            if ch != '0':
+                to_replace_min = ch
+                break
+        else:
+            to_replace_min = None
+        if to_replace_min:
+            min_str = num_str.replace(to_replace_min, '0')
+        else:
+            min_str = num_str
+        return int(max_str) - int(min_str)
